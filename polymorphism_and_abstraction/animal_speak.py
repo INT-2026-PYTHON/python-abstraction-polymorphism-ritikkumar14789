@@ -81,3 +81,39 @@ Explanation:
 =================================================
 
 """
+
+class PetAnimal:
+
+    def __init__(self, pet_name):
+        self.pet_name = pet_name
+
+    def sound(self):
+        print(f"{self.pet_name} makes a noise")
+
+
+class StreetDog(PetAnimal):
+
+    def sound(self):
+        print(f"{self.pet_name} goes Woof Woof!")
+
+
+class HomeCat(PetAnimal):
+
+    def sound(self):
+        print(f"{self.pet_name} goes Meow Meow!")
+
+
+class FarmCow(PetAnimal):
+
+    def sound(self):
+        print(f"{self.pet_name} goes Moo Moo!")
+
+
+animal_group = [
+    StreetDog("Buddy"),
+    HomeCat("Whiskers"),
+    FarmCow("Bessie")
+]
+
+for animal in animal_group:
+    animal.sound()

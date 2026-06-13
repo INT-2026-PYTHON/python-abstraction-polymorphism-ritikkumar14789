@@ -101,8 +101,6 @@ Explanation:
 """
 from abc import ABC, abstractmethod
 
-
-# Abstract Parent Class
 class Figure(ABC):
 
     def __init__(self, figure_name):
@@ -123,7 +121,6 @@ class Figure(ABC):
         print("-" * 30)
 
 
-# Circle Class
 class RoundShape(Figure):
 
     def __init__(self, radius):
@@ -139,7 +136,6 @@ class RoundShape(Figure):
         return 2 * pi * self.radius
 
 
-# Rectangle Class
 class BoxShape(Figure):
 
     def __init__(self, length, width):
@@ -154,7 +150,6 @@ class BoxShape(Figure):
         return 2 * (self.length + self.width)
 
 
-# Triangle Class
 class ThreeSideShape(Figure):
 
     def __init__(self, side1, side2, side3):
@@ -173,7 +168,6 @@ class ThreeSideShape(Figure):
         return self.side1 + self.side2 + self.side3
 
 
-# Driver Code
 try:
     sample = Figure("Test Shape")
 
@@ -182,14 +176,11 @@ except TypeError as error:
     print(error)
 
 
-# Creating Objects
 all_shapes = [
     RoundShape(5),
     BoxShape(4, 6),
     ThreeSideShape(3, 4, 5)
 ]
 
-
-# Looping through objects
 for item in all_shapes:
     item.show_details()

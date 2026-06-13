@@ -59,7 +59,7 @@ Explanation:
 =================================================
 
 """
-# Card Payment
+
 class DebitPayment:
 
     def __init__(self, user, card_number):
@@ -70,7 +70,6 @@ class DebitPayment:
         print(f"{self.user} completed ₹{amount} payment using Debit Card ({self.card_number})")
 
 
-# UPI Payment
 class MobilePay:
 
     def __init__(self, upi_address):
@@ -80,7 +79,6 @@ class MobilePay:
         print(f"{self.upi_address} transferred ₹{amount} through UPI")
 
 
-# Cash Payment
 class HandCash:
 
     def __init__(self, customer):
@@ -90,12 +88,10 @@ class HandCash:
         print(f"{self.customer} paid ₹{amount} with cash")
 
 
-# Function
 def make_payment(method, total):
     method.pay(total)
 
 
-# Driver Code
 payment_methods = [
     DebitPayment("Alice", "4111-1111-1111-1111"),
     MobilePay("bob@upi"),
@@ -103,6 +99,5 @@ payment_methods = [
 ]
 
 
-# Loop
 for item in payment_methods:
     make_payment(item, 500)

@@ -59,3 +59,50 @@ Explanation:
 =================================================
 
 """
+# Card Payment
+class DebitPayment:
+
+    def __init__(self, user, card_number):
+        self.user = user
+        self.card_number = card_number
+
+    def pay(self, amount):
+        print(f"{self.user} completed ₹{amount} payment using Debit Card ({self.card_number})")
+
+
+# UPI Payment
+class MobilePay:
+
+    def __init__(self, upi_address):
+        self.upi_address = upi_address
+
+    def pay(self, amount):
+        print(f"{self.upi_address} transferred ₹{amount} through UPI")
+
+
+# Cash Payment
+class HandCash:
+
+    def __init__(self, customer):
+        self.customer = customer
+
+    def pay(self, amount):
+        print(f"{self.customer} paid ₹{amount} with cash")
+
+
+# Function
+def make_payment(method, total):
+    method.pay(total)
+
+
+# Driver Code
+payment_methods = [
+    DebitPayment("Alice", "4111-1111-1111-1111"),
+    MobilePay("bob@upi"),
+    HandCash("Carol")
+]
+
+
+# Loop
+for item in payment_methods:
+    make_payment(item, 500)

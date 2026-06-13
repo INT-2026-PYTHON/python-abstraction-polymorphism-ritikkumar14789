@@ -99,3 +99,97 @@ Explanation:
 =================================================
 
 """
+from abc import ABC, abstractmethod
+
+
+# Abstract Parent Class
+class Figure(ABC):
+
+    def __init__(self, figure_name):
+        self.figure_name = figure_name
+
+    @abstractmethod
+    def calculate_area(self):
+        pass
+
+    @abstractmethod
+    def calculate_perimeter(self):
+        pass
+
+    def show_details(self):
+        print(f"{self.figure_name}")
+        print(f"Area      : {self.calculate_area()}")
+        print(f"Perimeter : {self.calculate_perimeter()}")
+        print("-" * 30)
+
+
+# Circle Class
+class RoundShape(Figure):
+
+    def __init__(self, radius):
+        super().__init__("Circle")
+        self.radius = radius
+
+    def calculate_area(self):
+        pi = 3.14159
+        return pi * self.radius * self.radius
+
+    def calculate_perimeter(self):
+        pi = 3.14159
+        return 2 * pi * self.radius
+
+
+# Rectangle Class
+class BoxShape(Figure):
+
+    def __init__(self, length, width):
+        super().__init__("Rectangle")
+        self.length = length
+        self.width = width
+
+    def calculate_area(self):
+        return self.length * self.width
+
+    def calculate_perimeter(self):
+        return 2 * (self.length + self.width)
+
+
+# Triangle Class
+class ThreeSideShape(Figure):
+
+    def __init__(self, side1, side2, side3):
+        super().__init__("Triangle")
+        self.side1 = side1
+        self.side2 = side2
+        self.side3 = side3
+
+    def calculate_area(self):
+        s = (self.side1 + self.side2 + self.side3) / 2
+        return (s * (s - self.side1) *
+                (s - self.side2) *
+                (s - self.side3)) ** 0.5
+
+    def calculate_perimeter(self):
+        return self.side1 + self.side2 + self.side3
+
+
+# Driver Code
+try:
+    sample = Figure("Test Shape")
+
+except TypeError as error:
+    print("Cannot create abstract class object!")
+    print(error)
+
+
+# Creating Objects
+all_shapes = [
+    RoundShape(5),
+    BoxShape(4, 6),
+    ThreeSideShape(3, 4, 5)
+]
+
+
+# Looping through objects
+for item in all_shapes:
+    item.show_details()

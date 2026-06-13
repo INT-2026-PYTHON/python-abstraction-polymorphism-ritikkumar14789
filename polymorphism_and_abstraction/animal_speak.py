@@ -80,4 +80,45 @@ Explanation:
   the heart of polymorphism.
 =================================================
 
-"""
+"""# Parent Class!:
+class PetAnimal:
+
+    def __init__(self, pet_name):
+        self.pet_name = pet_name
+
+    def sound(self):
+        print(f"{self.pet_name} makes a noise")
+
+
+# Dog Class!:
+class StreetDog(PetAnimal):
+
+    def sound(self):
+        print(f"{self.pet_name} goes Woof Woof!")
+
+
+# Cat Class!:
+class HomeCat(PetAnimal):
+
+    def sound(self):
+        print(f"{self.pet_name} goes Meow Meow!")
+
+
+# Cow Class!:
+class FarmCow(PetAnimal):
+
+    def sound(self):
+        print(f"{self.pet_name} goes Moo Moo!")
+
+
+# Driver Code!:
+animal_group = [
+    StreetDog("Buddy"),
+    HomeCat("Whiskers"),
+    FarmCow("Bessie")
+]
+
+
+# Single Loop!:
+for animal in animal_group:
+    animal.sound()
